@@ -23,12 +23,15 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find_by({title: params[:title], body: params[:body]})
-    @posts.save   
+    @post = Post.find_by(id: params[:id])
+    @post.title = params[:title]
+    @post.body = params[:body]
+    @post.save   
   end
 
   def destroy
-    
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
   end
 
 end    
