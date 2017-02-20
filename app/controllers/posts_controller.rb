@@ -15,7 +15,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new({title: params[:title], body: params[:body]})
     @post.save
-    
+    redirect_to "/posts/#{@post.id}"
+    flash[:success] = "Post created" 
   end
 
   def edit
@@ -26,12 +27,27 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.title = params[:title]
     @post.body = params[:body]
-    @post.save   
+    @post.save
+    redirect_to "/posts/#{@post.id}"
+    flash[:info] = "Post updated"
   end
 
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    redirect_to "/posts"
+    flash[:danger] = "Post deleted"
+  end
+
+  def search
+    search_query = params[:search_input]
+    @posts = Post.where("title LIKE ? OR body LIKE ?", "%#{search_query.downcase}%", "%#{search_query}%")
+    if @posts.empty?
+      flash[:info] = "Nothing found in search about #{search_query}"
+    else
+      flash[:success] = "This is what we found for your search about #{search_query}"
+    end
+    render :index
   end
 
 end    
