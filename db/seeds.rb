@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Post.create!([
+  {title: "Karanga yambaye forali", body: "Kaangalsssssssssss isanganya", user_id: nil},
+  {title: "First Post by Vedaste", body: "Add ‘bootstrap-sass’ anywhere in your Gemfile. gem 'bootstrap-sass', '~> 3.3.6' Inside your terminal (make sure you’re in the folder where your Rails app is), run:  bundle install Inside app/assets/stylesheets, create a new file called _external.css.scss Add these lines to that file: @import \"bootstrap-sprockets\"; @import \"bootstrap\"; Inside app/assets/javascripts/application.js, add this line under the line that says //=require jquery:  //= require bootstrap-sprockets If your rails server was already running, restart it.", user_id: nil},
+  {title: "arsene", body: "Hi All,  I trust you are having a good start of the week. Only one week left to the deadline, February 27. Have you started working on your application? Don't be late. The leadership program offered at the YALI Regional Leadership Center East Africa is fully-funded, what is needed on your part is commitment and time to attend the four-week residential program. If you want to enhance your leadership skills then this is the opportunity you have been waiting for. For more details go here.  Feel free to email me with any questions or clarifications.", user_id: nil}
+])
