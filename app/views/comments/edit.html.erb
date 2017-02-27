@@ -1,0 +1,20 @@
+<h1>Edit Post:</h1>
+
+<%= form_tag "/posts/#{@post.id}", method: :patch do %>
+  <ul>
+    <% if @comment.errors.any? %>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li class="errors"><%= message %></li> 
+      <% end %>
+    <% end %>
+  </ul>
+  <div class="row">
+    <label for="title">Title of the comment:</label><br />
+    <input id="title" class="input" name="title" type="text" value="<%= @comment.title %>" size="30" /><br />
+  </div>
+  <div class="row">
+    <label for="body">Body of the comment:</label><br />
+    <textarea id="body" class="input" name="body" value="<%= @comment.body %>" rows="15" cols="60"></textarea><br />
+  </div>
+  <input id="submit_button" type="submit" value="Publish Comment" />
+<% end %>

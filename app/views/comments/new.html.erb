@@ -1,6 +1,3 @@
-<%= button_to "Delete Post", "/posts/#{@post.id}", method: :delete %>
-<%= button_to "Edit Post", "/posts/#{@post.id}/edit", method: :get, :data => {:confirm => 'Are you sure?'} %>
-
 <h1>New Comment:</h1>
 
 <%= form_tag "/posts", method: :post do %>
@@ -21,9 +18,3 @@
   </div>
   <input id="submit_button" type="submit" value="Publish comment" />
 <% end %>
-
-<h1><%= @post.title %></h1>
-<p><%= @post.body %></p>
-
-<h1><%= @post.comments.count %> Comments</h1>
-
