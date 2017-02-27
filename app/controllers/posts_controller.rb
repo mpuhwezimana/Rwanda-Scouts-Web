@@ -9,14 +9,18 @@ class PostsController < ApplicationController
   end
 
   def new
-    @posts = Post.new
+    @post = Post.new
   end
 
   def create
     @post = Post.new({title: params[:title], body: params[:body]})
-    @post.save
-    redirect_to "/posts/#{@post.id}"
-    flash[:success] = "Post created" 
+    if @post.save
+      redirect_to "/posts/#{@post.id}"
+      flash[:success] = "Post created"
+    else
+      render :new
+      flash[:info] = "Missing title or body"
+    end
   end
 
   def edit
@@ -27,9 +31,13 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.title = params[:title]
     @post.body = params[:body]
-    @post.save
-    redirect_to "/posts/#{@post.id}"
-    flash[:info] = "Post updated"
+    if @post.save
+      redirect_to "/posts/#{@post.id}"
+      flash[:info] = "Post updated"
+    else
+      render :edit
+    end
+
   end
 
   def destroy
