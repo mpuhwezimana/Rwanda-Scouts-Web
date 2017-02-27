@@ -1,5 +1,5 @@
 <%= button_to "Delete Post", "/posts/#{@post.id}", method: :delete %>
-<%= button_to "Edit Post", "/posts/#{@post.id}/edit", method: :get %>
+<%= button_to "Edit Post", "/posts/#{@post.id}/edit", method: :get, :data => {:confirm => 'Are you sure?'} %>
 
 <h1><%= @post.title %></h1>
 <p><%= @post.body %></p>
