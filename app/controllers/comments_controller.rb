@@ -1,42 +1,15 @@
 class CommentsController < ApplicationController
-
-  def new
-    @comment = Comment.new
-  end
-
   def create
-    @comment = Comment.new({name: params[:name], body: params[:body]})
-    if @comment.save
-      redirect_to "/posts/#{@post.id}"
-      flash[:success] = "Comment successfully added"
-    else
-      render :new
-      flash[:info] = "Missing something in the comment"
-    end
-  end
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(params[:comment].permit(:name, :body))
 
-  def edit
-    @comment = Comment.find_by(id: params[:id])    
-  end
-
-  def update
-    @comment = Comment.find_by(id: params[:id])
-    @comment.name = params[:title]
-    @comment.body = params[:body]
-    if @comment.save
-      redirect_to "/posts/#{@post.id}"
-      flash[:info] = "Comment updated"
-    else
-      render :edit
-    end
-
+    redirect_to post_path(@post)
   end
 
   def destroy
-    @comment = Post.find_by(id: params[:id])
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
     @comment.destroy
-    redirect_to "/posts/#{@post.id}"
-    flash[:danger] = "Comment deleted"
+    redirect_to post_path(@post)
   end
-
 end
