@@ -1,0 +1,21 @@
+<h1>Create a New Troop</h1>
+
+<%= form_tag "/troops" do %>
+
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+
+  <%= label_tag :latitude %>
+  <%= text_field_tag :latitude %>
+
+  <%= label_tag :longitude %>
+  <%= text_field_tag :longitude %>
+
+  <%= label_tag :address %>
+  <%= text_field_tag :address %>
+
+  <%= label_tag :contacts %>
+  <%= text_field_tag :contacts %>
+
+  <%= submit_tag "Create Troop" %>
+<% end %>
