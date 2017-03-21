@@ -97,14 +97,15 @@
           center: {lat: -1.9719729, lng: 30.106111800000008},
           zoom: 9
         });
+        <% @troops.each do |troop|%>;
+          var troop = {lat: <%=troop.latitude.to_f%>, lng: <%=troop.longitude.to_f%>};
 
-        var troop = {lat: -1.9362376, lng: 30.1300601};
-
-        var marker = new google.maps.Marker({
-          position: troop,
-          map: map,
-          title: 'Hello World!'
-        });
+          var marker = new google.maps.Marker({
+            position: troop,
+            map: map,
+            title: '<%= troop.name %>'
+          });
+        <% end %>;
 
 
         var input = document.getElementById('pac-input');
