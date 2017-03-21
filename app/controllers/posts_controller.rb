@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   def search
     search_query = params[:search_input]
-    @posts = Post.where("title LIKE ? OR body LIKE ?", "%#{search_query.downcase}%", "%#{search_query}%")
+    @posts = Post.where("title LIKE ? OR body LIKE ?", "%#{search_query}%", "%#{search_query}%")
     if @posts.empty?
       flash[:info] = "Nothing found in search about #{search_query}"
     else
@@ -60,4 +60,4 @@ class PostsController < ApplicationController
     render :index
   end
 
-end    
+end

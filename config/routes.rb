@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   get "/logout" => "sessions#destroy"
 
+  post "/posts/search", to: 'posts#search'
+  post "/troops/search", to: 'troops#search'
+
   resources :troops do
   end
 

@@ -1,6 +1,7 @@
 .navbar {
     color: white;
     background-color: purple;
+    font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
 }
 .white {
   color: white;
@@ -15,4 +16,31 @@
 .errors{
   color: red;
   font-style: bold;
+}
+
+body {
+  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+}
+a {
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+  color: #800080;
+}
+a:hover,
+a:focus {
+  color: #800080;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
