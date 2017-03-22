@@ -1,2 +1,22 @@
-<h1>Discussions#show</h1>
-<p>Find me in app/views/discussions/show.html.erb</p>
+<div class="container">
+  <% if current_user%>
+    <%= button_to "Delete Post", "/discussions/#{@discussion.id}", method: :delete, :data => {:confirm => 'Are you sure?'} %>
+    <%= button_to "Edit Post", "/discussions/#{@discussion.id}/edit", method: :get, :data => {:confirm => 'Are you sure?'} %>
+  <% end %>
+
+  <h1><%= @discussion.name %></h1>
+  <p><%= @discussion.post %></p>
+
+  <% if current_user%>
+    <div id="comments">
+      <h2><%= @discussion.discussion_comments.count %> Comments</h2>
+      <% @discussion.discussion_comments.each do |comment| %>
+        <h3><%= comment.name %></h3>
+        <p><%= comment.body %></p>
+      <% end %>
+
+      <h3>Add a Comment:</h3>
+      <%= render "discussion_comments/form" %>
+    </div>
+  <% end %>
+</div>

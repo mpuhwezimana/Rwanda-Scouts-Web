@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :discussions do
-    resources :comments
+    resources :discussion_comments
   end
 
 

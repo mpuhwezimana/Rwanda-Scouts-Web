@@ -1,2 +1,33 @@
-<h1>Discussions#new</h1>
-<p>Find me in app/views/discussions/new.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h1>New Post:</h1>
+<script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+
+  <%= form_tag "/discussions", method: :post do %>
+  <ul>
+    <% if @discussion.errors.any? %>
+      <% @discussion.errors.full_messages.each do |message| %>
+        <li class="errors"><%= message %></li> 
+      <% end %>
+    <% end %>
+  </ul>
+    <div class="row">
+      <label for="name">User's Name:</label><br />
+      <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
+    </div>
+    <div class="row">
+      <label for="post">User's Post:</label><br />
+      <textarea name="post"></textarea>
+       <script>
+        CKEDITOR.replace( 'post' );
+      </script>     
+    </div>
+    
+    <input id="submit_button" type="submit" value="Publish discussion" />
+  <% end %>
+</body>
+</html>

@@ -1,2 +1,20 @@
-<h1>Discussions#edit</h1>
-<p>Find me in app/views/discussions/edit.html.erb</p>
+<h1>Edit Post:</h1>
+
+<%= form_tag "/discussions/#{@discussion.id}", method: :patch do %>
+  <ul>
+    <% if @discussion.errors.any? %>
+      <% @discussion.errors.full_messages.each do |message| %>
+        <li class="errors"><%= message %></li> 
+      <% end %>
+    <% end %>
+  </ul>
+  <div class="row">
+    <label for="name">User's Name:</label><br />
+    <input id="name" class="input" name="name" type="text" value="<%= @discussion.name %>" size="30" /><br />
+  </div>
+  <div class="row">
+    <label for="post">User's Post:</label><br />
+    <textarea id="post" class="input" name="post" value="<%= @discussion.post %>" rows="15" cols="60"></textarea><br />
+  </div>
+  <input id="submit_button" type="submit" value="Publish Post" />
+<% end %>

@@ -1,2 +1,30 @@
-<h1>Discussions#index</h1>
-<p>Find me in app/views/discussions/index.html.erb</p>
+<div class="container">
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>All Posts</title>
+  </head>
+  <body>
+
+      <div class="row">
+        <% @discussions.each_slice(2) do |two_discussions| %>
+            <div class="row">
+            <% two_discussions.each do |discussion| %>
+              <div class="col-md-6">
+                <h2><%= link_to discussion.name, "/discussions/#{discussion.id}" %></h2>
+                <p class="date"> 
+                  <% if discussion.created_at > Time.now.beginning_of_day %>
+                    <%="#{time_ago_in_words(discussion.created_at)} ago"%>  
+                  <% else %>
+                  <%= discussion.created_at.strftime("%b %d, %Y") %>
+              <% end %>
+                </p>
+                <p> <%= discussion.post%></p>
+              </div>
+            <% end %>
+            </div>
+        <% end %>
+      </div>
+  </body>
+  </html>
+</div>
