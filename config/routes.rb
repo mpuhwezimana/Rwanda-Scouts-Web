@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :troops do
   end
 
+  resources :discussions do
+    resources :comments
+  end
+
 
  
   resources :posts do
