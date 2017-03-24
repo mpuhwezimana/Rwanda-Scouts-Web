@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :contacts
   get "/", to: "pages#home"
   get "/signup" => "users#new"
   post "/users" => "users#create"
