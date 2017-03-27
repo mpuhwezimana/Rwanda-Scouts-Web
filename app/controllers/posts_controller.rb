@@ -4,7 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order("created_at DESC")
-    @troops = Troop.all
   end 
 
   def show
@@ -16,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new({title: params[:title], body: params[:body]})
+    @post = Post.new({title: params[:title], image: params[:image], introduction: params[:introduction], author: params[:author], body: params[:body]})
     if @post.save
       redirect_to "/posts/#{@post.id}"
       flash[:success] = "Post created"
@@ -33,6 +32,9 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     @post.title = params[:title]
+    @post.image = params[:image]
+    @post.introduction = params[:introduction]
+    @post.author = params[:author]
     @post.body = params[:body]
     if @post.save
       redirect_to "/posts/#{@post.id}"
@@ -60,5 +62,4 @@ class PostsController < ApplicationController
     end
     render :index
   end
-
 end
