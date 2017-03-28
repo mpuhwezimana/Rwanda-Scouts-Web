@@ -6,6 +6,7 @@ class DiscussionsController < ApplicationController
 
   def show
     @discussion = Discussion.find_by(id: params[:id])
+    @discussion_comment = DiscussionComment.find_by(id: params[:id])
   end
 
   def new

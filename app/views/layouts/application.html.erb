@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
   <% flash.each do |name, message| %>
       <div class="alert alert-<%= name %>" role="alert"><%= message %></div>
@@ -31,17 +30,14 @@
 
             <li><a class="white" href="/posts">News</a></li>
             <li class="dropdown">
-              <a href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Posts <span class="caret"></span></a>
+              <a href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">What Is Scouting<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/posts">All Posts</a></li>
-                <li><a href="#">#<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">#<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">#<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">#</a></li>
-                <li role="separator" class="divider"></li>
-                <% if current_user%> 
-                <li><a href="/posts/new">New Post</a></li>
-                <% end %>
+                <li><a href="/pages/mission">Mission & Vision<span class="sr-only">(current)</span></a></li>
+                <li><a href="/pages/law">Law and Promise<span class="sr-only">(current)</span></a></li>
+                <li><a href="/pages/program">Youth Program<span class="sr-only">(current)</span></a></li>
+                <li role="separator" class="divider"></li> 
+                <li><a href="/pages/about">About RSA<span class="sr-only">(current)</span></a></li>
+                <li><a href="/pages/contacts">Contact Us</a></li>
               </ul>
             </li>
           </ul>

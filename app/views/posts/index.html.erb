@@ -1,3 +1,7 @@
+<% if current_user%> 
+  <a href="/posts/new">New Post</a>
+<% end %>
+
 <div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
   
@@ -5,53 +9,47 @@
     <div class="carousel-inner">
     
       <div class="item active">
-        <img src="http://placehold.it/760x400/cccccc/ffffff">
+        <img style="width: 760px; height: 400px;" src="<%= @posts.last.image%>">
          <div class="carousel-caption">
           <h4><a href="#"> <%= @posts.last.introduction%></a></p>
         </div>
-      </div><!-- End Item -->
+      </div>
 
        <div class="item">
-        <img src="http://placehold.it/760x400/999999/cccccc">
+        <img style="width: 760px; height: 400px;" src="<%= @posts.first.image%>">
          <div class="carousel-caption">
-          <h4><a href="#">consetetur sadipscing elitr, sed diam nonumy eirmod</a></h4>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+          <h4><a href="#"><%= @posts.first.introduction%></a></h4>
         </div>
-      </div><!-- End Item -->
+      </div>
+      <div class="item">
+        <img style="width: 760px; height: 400px;" src="<%= @posts.second.image%>">
+         <div class="carousel-caption">
+          <h4><a href="#"><%= @posts.second.introduction%></a></p>
+        </div>
+      </div>
       
       <div class="item">
-        <img src="http://placehold.it/760x400/dddddd/333333">
+        <img style="width: 760px; height: 400px;" src="<%= @posts.third.image%>">
          <div class="carousel-caption">
-          <h4><a href="#">tempor invidunt ut labore et dolore</a></h4>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+          <h4><a href="#"><%= @posts.third.introduction%></a></p>
         </div>
-      </div><!-- End Item -->
-      
-      <div class="item">
-        <img src="http://placehold.it/760x400/999999/cccccc">
-         <div class="carousel-caption">
-          <h4><a href="#">magna aliquyam erat, sed diam voluptua</a></h4>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
-        </div>
-      </div><!-- End Item -->
+      </div>
 
       <div class="item">
-        <img src="http://placehold.it/760x400/dddddd/333333">
+        <img style="width: 760px; height: 400px;" src="<%= @posts.fourth.image%>">
          <div class="carousel-caption">
-          <h4><a href="#">tempor invidunt ut labore et dolore magna aliquyam erat</a></h4>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+          <h4><a href="#"><%= @posts.fourth.introduction%></a></p>
         </div>
-      </div><!-- End Item -->
-              
-    </div><!-- End Carousel Inner -->
+      </div>
+    </div>
 
 
   <ul class="list-group col-sm-4">
-    <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><h4>Lorem ipsum dolor sit amet consetetur sadipscing</h4></li>
-    <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><h4>consetetur sadipscing elitr, sed diam nonumy eirmod</h4></li>
-    <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><h4>tempor invidunt ut labore et dolore</h4></li>
-    <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><h4>magna aliquyam erat, sed diam voluptua</h4></li>
-    <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><h4>tempor invidunt ut labore et dolore magna aliquyam erat</h4></li>
+    <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><h4><%= @posts.last.title%></h4></li>
+    <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><h4><%= @posts.first.title%></h4></li>
+    <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><h4><%= @posts.second.title%></h4></li>
+    <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><h4><%= @posts.third.title%></h4></li>
+    <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><h4><%= @posts.fourth.title%></h4></li>
   </ul>
 
     <!-- Controls -->
@@ -88,8 +86,9 @@
           </div>
           <p class="description"><%=post.introduction%></p>
           <p class="more">
-            <a href="#">read more</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+            <a href="/posts/<%=post.id%>">read more</a><i class="fa fa-angle-right" aria-hidden="true"></i>
           </p>
+          <br>
       </div>
       </div>
     <% end %>

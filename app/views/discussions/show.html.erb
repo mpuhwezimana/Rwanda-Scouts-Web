@@ -5,18 +5,35 @@
   <% end %>
 
   <h1><%= @discussion.name %></h1>
-  <p><%= @discussion.post %></p>
+  <p><%= raw(@discussion.post) %></p>
 
-  <% if current_user%>
-    <div id="comments">
-      <h2><%= @discussion.discussion_comments.count %> Comments</h2>
-      <% @discussion.discussion_comments.each do |comment| %>
-        <h3><%= comment.name %></h3>
-        <p><%= comment.body %></p>
-      <% end %>
-
-      <h3>Add a Comment:</h3>
-      <%= render "discussion_comments/form" %>
+ <% @discussion.discussion_comments.each do |comment| %> 
+  <a href="/users"><strong><%= comment.name%></strong></a>
+      <p><%= comment.body%><p>
+  <p class="created_at">Commented <%= time_ago_in_words(comment.created_at) %> ago</p><br>
+  <%= button_to "Delete Comment", "/discussion_comments/#{@discussion_comment.id}", method: :delete, :data => {:confirm => 'Are you sure?'} %>
+  <%end%>
+                     
+    </ul><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">         
+        <%= form_for([@discussion, @discussion.discussion_comments.build]) do |f| %>
+          <%= f.label :name %><br>
+          <% if current_user %>
+            <%= f.text_field :name, required: true, value:current_user.name%>
+          <% else %>
+            <%= f.text_field :name, required: true%>
+          <% end %>
+          <br>
+          <%= f.label :body %><br>
+          <%= f.text_area :body %><br>
+          <br>
+          <%= f.submit %>
+        <% end %>
     </div>
-  <% end %>
+  </div>
+</div>
+</div>
+</div>
 </div>

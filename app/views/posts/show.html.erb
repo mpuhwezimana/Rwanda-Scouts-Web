@@ -5,7 +5,7 @@
   <% end %>
 
   <h1><%= @post.title %></h1>
-  <p><%= @post.body %></p>
+  <p><%= raw(@post.body) %></p>
 
   <% if current_user%>
     <div id="comments">
@@ -17,4 +17,3 @@
     </div>
   <% end %>
 </div>
-

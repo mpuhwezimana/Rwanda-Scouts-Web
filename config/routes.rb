@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
  
+  get 'pages/home'
+
+  get 'pages/mission'
+
+  get 'pages/law'
+
+  get 'pages/about'
+
+  get 'pages/contacts'
+  get 'pages/program'
+
   resources :contacts
   get "/", to: "pages#home"
+  get "/pages/mission", to: "pages#mission"
   get "/signup" => "users#new"
   post "/users" => "users#create"
 
@@ -18,6 +30,12 @@ Rails.application.routes.draw do
   resources :discussions do
     resources :discussion_comments
   end
+
+  resources :discussion_comments
+
+
+
+
 
 
  
