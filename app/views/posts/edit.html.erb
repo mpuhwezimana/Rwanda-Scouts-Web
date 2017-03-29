@@ -1,36 +1,42 @@
 <h1>Edit Post:</h1>
-
-<%= form_tag "/posts/#{@post.id}", method: :patch do %>
-  <ul>
-    <% if @post.errors.any? %>
-      <% @post.errors.full_messages.each do |message| %>
-        <li class="errors"><%= message %></li> 
+<div class="container">
+  
+  <%= form_tag "/posts/#{@post.id}", method: :patch do %>
+    <ul>
+      <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |message| %>
+          <li class="errors"><%= message %></li> 
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
-  <div class="row">
-    <label for="title">Title of the post:</label><br />
-    <input id="title" class="input" name="title" type="text" value="<%= @post.title %>" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="title">Title of the post:</label><br />
-    <input id="title" class="input" name="title" type="text" value="<%= @post.title %>" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="title">Cover Image</label><br />
-    <input id="image" class="input" name="image" type="text" value="<%= @post.image %>" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="title">Post Introduction</label><br />
-    <input id="introduction" class="input" name="introduction" type="text" value="<%= @post.introduction %>" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="title">Post Author</label><br />
-    <input id="author" class="input" name="author" type="text" value="<%= @post.author %>" size="30" /><br />
-  </div>
-  <div class="row">
-    <label for="body">Body of the post:</label><br />
-    <textarea id="body" class="input" name="body" value="<%= @post.body %>" rows="15" cols="60"></textarea><br />
-  </div>
-  <input id="submit_button" type="submit" value="Publish Post" />
-<% end %>
+    </ul>
+    <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+    <div class="row">
+      <label for="title">Title of the post:</label><br />
+      <input id="title" class="input" name="title" type="text" value="<%= @post.title %>" size="30" /><br />
+    </div>
+    <div class="row">
+      <label for="title">Title of the post:</label><br />
+      <input id="title" class="input" name="title" type="text" value="<%= @post.title %>" size="30" /><br />
+    </div>
+    <div class="row">
+      <label for="title">Cover Image</label><br />
+      <input id="image" class="input" name="image" type="text" value="<%= @post.image %>" size="30" /><br />
+    </div>
+    <div class="row">
+      <label for="title">Post Introduction</label><br />
+      <input id="introduction" class="input" name="introduction" type="text" value="<%= @post.introduction %>" size="30" /><br />
+    </div>
+    <div class="row">
+      <label for="title">Post Author</label><br />
+      <input id="author" class="input" name="author" type="text" value="<%= @post.author %>" size="30" /><br />
+    </div>
+    <div class="row">
+        <label for="body">Body of the post:</label><br />
+        <textarea name="body" value="raw<%= @post.body %>"></textarea>
+         <script>
+          CKEDITOR.replace( 'body' );
+        </script>   
+      </div>
+    <input id="submit_button" type="submit" value="Publish Post" />
+  <% end %>
+</div>

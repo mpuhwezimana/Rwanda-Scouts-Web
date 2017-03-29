@@ -14,6 +14,7 @@
       <% end %>
     <% end %>
   </ul>
+  <div class="container">
     <div class="row">
       <label for="title">Title of the post:</label><br />
       <input id="title" class="input" name="title" type="text" value="" size="30" /><br />
@@ -35,10 +36,11 @@
       <textarea name="body"></textarea>
        <script>
         CKEDITOR.replace( 'body' );
-      </script>     
+      </script>   
     </div>
     
     <input id="submit_button" type="submit" value="Publish Post" />
   <% end %>
+  </div>
 </body>
 </html>

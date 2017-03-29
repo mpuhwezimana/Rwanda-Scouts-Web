@@ -4,7 +4,9 @@
     <%= button_to "Edit Post", "/posts/#{@post.id}/edit", method: :get, :data => {:confirm => 'Are you sure?'} %>
   <% end %>
 
-  <h1><%= @post.title %></h1>
+  <h1 style="text-align: center; color: purple;"><%= @post.title %></h1>
+  <h5 style="text-align: center;">Written by: <%= @post.author %></h5>
+  <img src="<%= @post.image %>" class="img-responsive">
   <p><%= raw(@post.body) %></p>
 
   <% if current_user%>

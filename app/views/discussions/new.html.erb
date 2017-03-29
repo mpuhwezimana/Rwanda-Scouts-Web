@@ -5,6 +5,7 @@
 </head>
 <body>
   <h1>New Post:</h1>
+<div class="container">
 <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
 
   <%= form_tag "/discussions", method: :post do %>
@@ -29,5 +30,6 @@
     
     <input id="submit_button" type="submit" value="Publish discussion" />
   <% end %>
+</div>
 </body>
 </html>
