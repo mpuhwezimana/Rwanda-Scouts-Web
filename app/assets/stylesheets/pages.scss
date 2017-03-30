@@ -5,7 +5,6 @@
 body{
     font-family:open sans;}
 
-
 .one-column-text{
     padding:80px 0;}
 
@@ -40,7 +39,7 @@ body{
     border-bottom:1px solid #ddd;}
 
 .add{
-    background: #333; 
+    background: purple; 
     padding: 10%; 
     height: 300px;}
 
@@ -260,10 +259,11 @@ article h2{
     height:600px;}
 
 .jumbotron {
-background: #358CCE;
+background: purple;
 color: #FFF;
 border-radius: 0px;
 }
+
 .jumbotron-sm { padding-top: 24px;
 padding-bottom: 24px; }
 .jumbotron small {
@@ -293,7 +293,7 @@ font-size: 24px;
 }
 
 /* Set a specific color for each brand */
-
+              
 /* Facebook */
 .fa-facebook {
     background: #3B5998;

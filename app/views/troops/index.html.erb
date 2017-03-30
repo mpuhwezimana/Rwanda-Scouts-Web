@@ -108,24 +108,22 @@
         });
 
         <% @troops.each do |troop|%>;
+          
+          var troop = {lat: <%=troop.latitude.to_f%>, lng: <%=troop.longitude.to_f%>};
+          var marker = new google.maps.Marker({
+            position: troop,
+            map: map,
+            title: '<%= troop.name %>'
+          });
           var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading"><%= troop.name %></h1>'+
             '<div id="bodyContent">'+
             '<p><b><%= troop.name %></b>, is located at <b><%= troop.address %></b>,';
-          var troop = {lat: <%=troop.latitude.to_f%>, lng: <%=troop.longitude.to_f%>};
-
           var infowindow = new google.maps.InfoWindow({
             content: contentString
-          });
-
-          
-          var marker = new google.maps.Marker({
-            position: troop,
-            map: map,
-            title: '<%= troop.name %>'
-          });
+          });    
 
           marker.addListener('click', function() {
             infowindow.open(map, marker);
@@ -202,22 +200,21 @@
     <div class="row col-md-6 col-md-offset-2 custyle">
     <table class="table table-striped custab">
     <thead>
-    <a href="<%new_troop_path %>" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Troop</a>
+    <a class="primary" href="/posts/new">New Post</a>
+    <a href="/troops/new" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new Troop</a>
         <tr>
             <th>Troop Name</th>
             <th>Address</th>
             <th>Contacts</th>
-            <th class="text-center">Action</th>
         </tr>
     </thead>
     <% @troops.each do |troop|%>;
             <tr>
-                <td><%= troop.name %></td>
+                <td><%= link_to troop.name, "/troops/#{troop.id}" %></td>
                 <td><%= troop.address %></td>
                 <td><%= troop.contacts %></td>
-                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
             </tr>
-    <% end %>;
+    <% end %>
     </table>
     </div>
 </div>

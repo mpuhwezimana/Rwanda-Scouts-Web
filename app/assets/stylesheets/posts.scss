@@ -137,8 +137,8 @@ p.more {
 }
 
 .cat {
-  background: #a0bc9f;
-  color: #fff;
+  background: purple;
+  color: white;
   text-transform: uppercase;
   position: absolute;
   left: 0;
@@ -167,7 +167,7 @@ p.more {
   cursor:pointer;
 }
 #myCarousel .list-group .active {
-  background-color:#eee;  
+  background-color:purple;  
 }
 
 @media (min-width: 992px) { 

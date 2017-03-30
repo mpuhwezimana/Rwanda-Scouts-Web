@@ -32,7 +32,7 @@
     </div>
     <div class="row">
         <label for="body">Body of the post:</label><br />
-        <textarea name="body" value="raw<%= @post.body %>"></textarea>
+        <textarea name="body"><%= raw(@post.body) %></textarea>
          <script>
           CKEDITOR.replace( 'body' );
         </script>   

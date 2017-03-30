@@ -11,13 +11,12 @@
   <a href="/users"><strong><%= comment.name%></strong></a>
       <p><%= comment.body%><p>
   <p class="created_at">Commented <%= time_ago_in_words(comment.created_at) %> ago</p><br>
-  <%= button_to "Delete Comment", "/discussion_comments/#{@discussion_comment.id}", method: :delete, :data => {:confirm => 'Are you sure?'} %>
   <%end%>
                      
     </ul><br>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">         
+    <div class="col-md-6">     
         <%= form_for([@discussion, @discussion.discussion_comments.build]) do |f| %>
           <%= f.label :name %><br>
           <% if current_user %>

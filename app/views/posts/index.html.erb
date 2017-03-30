@@ -1,5 +1,5 @@
 <% if current_user%> 
-  <a href="/posts/new">New Post</a>
+  <a class="primary" href="/posts/new">New Post</a>
 <% end %>
 
 <div class="container">
@@ -11,34 +11,34 @@
       <div class="item active">
         <img style="width: 760px; height: 400px;" src="<%= @posts.last.image%>">
          <div class="carousel-caption">
-          <h4><a href="#"> <%= @posts.last.introduction%></a></p>
+          <h4><%= @posts.last.introduction%></p>
         </div>
       </div>
 
        <div class="item">
         <img style="width: 760px; height: 400px;" src="<%= @posts.first.image%>">
          <div class="carousel-caption">
-          <h4><a href="#"><%= @posts.first.introduction%></a></h4>
+          <h4><%= @posts.all[-2].introduction%></h4>
         </div>
       </div>
       <div class="item">
         <img style="width: 760px; height: 400px;" src="<%= @posts.second.image%>">
          <div class="carousel-caption">
-          <h4><a href="#"><%= @posts.second.introduction%></a></p>
+          <h4><%= @posts.all[-3].introduction%></p>
         </div>
       </div>
       
       <div class="item">
         <img style="width: 760px; height: 400px;" src="<%= @posts.third.image%>">
          <div class="carousel-caption">
-          <h4><a href="#"><%= @posts.third.introduction%></a></p>
+          <h4><%= @posts.all[-4].introduction%></p>
         </div>
       </div>
 
       <div class="item">
         <img style="width: 760px; height: 400px;" src="<%= @posts.fourth.image%>">
          <div class="carousel-caption">
-          <h4><a href="#"><%= @posts.fourth.introduction%></a></p>
+          <h4><%= @posts.all[-5].introduction%></p>
         </div>
       </div>
     </div>
@@ -88,6 +88,12 @@
           <p class="more">
             <a href="/posts/<%=post.id%>">read more</a><i class="fa fa-angle-right" aria-hidden="true"></i>
           </p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
           <br>
       </div>
       </div>
