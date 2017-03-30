@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'pages/contacts'
   get 'pages/program'
 
+  match '/contactes', to: 'contactes#new', via: 'get'
+  resources "contactes", only: [:new, :create]
+
   resources :contacts
   get "/", to: "pages#home"
   get "/pages/mission", to: "pages#mission"

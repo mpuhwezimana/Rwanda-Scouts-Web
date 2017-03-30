@@ -1,0 +1,2 @@
+module ContactesHelper
+end

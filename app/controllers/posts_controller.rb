@@ -60,6 +60,7 @@ class PostsController < ApplicationController
     else
       flash[:success] = "This is what we found for your search about #{search_query}"
     end
+    @posts = Post.all
     render :index
   end
 end
