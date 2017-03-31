@@ -15,7 +15,7 @@ class TroopsController < ApplicationController
   def create
     @troop = Troop.new({name: params[:name], latitude: params[:latitude], longitude: params[:longitude], address: params[:address], contacts: params[:contacts]})
     if @troop.save
-      redirect_to "/troops/#{@troop.id}"
+      redirect_to "/troops"
       flash[:success] = "troop created"
     else
       render :new

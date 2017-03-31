@@ -4,8 +4,6 @@
   <li>Name: <%= @troop.name %></li>
   <li>Address: <%= @troop.address %></li>
   <li>Contacts: <%= @troop.contacts %></li>
-  <li>Latitude: <%= @troop.latitude %></li>
-  <li>Longitude: <%= @troop.longitude %></li>
 </ul>
 
 <%= link_to "Delete Troop", "/troops/#{@troop.id}", method: :delete, :data => {:confirm => 'Are you sure?'} %>

@@ -120,7 +120,7 @@
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading"><%= troop.name %></h1>'+
             '<div id="bodyContent">'+
-            '<p><b><%= troop.name %></b>, is located at <b><%= troop.address %></b>,';
+            '<p><b><%= troop.name %></b>, is located at <b><%= troop.address %>. </b> you can contact them on this number<b> <%= troop.contacts %></b>,';
           var infowindow = new google.maps.InfoWindow({
             content: contentString
           });    
