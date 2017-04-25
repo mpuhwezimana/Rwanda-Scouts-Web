@@ -16,27 +16,27 @@
       </div>
 
        <div class="item">
-        <img style="width: 760px; height: 400px;" src="<%= @posts.first.image%>">
+        <img style="width: 760px; height: 400px;" src="<%= @posts.all[-2].image%>">
          <div class="carousel-caption">
           <h4><%= @posts.all[-2].introduction%></h4>
         </div>
       </div>
       <div class="item">
-        <img style="width: 760px; height: 400px;" src="<%= @posts.second.image%>">
+        <img style="width: 760px; height: 400px;" src="<%= @posts.all[-3].image%>">
          <div class="carousel-caption">
           <h4><%= @posts.all[-3].introduction%></p>
         </div>
       </div>
       
       <div class="item">
-        <img style="width: 760px; height: 400px;" src="<%= @posts.third.image%>">
+        <img style="width: 760px; height: 400px;" src="<%= @posts.all[-4].image%>">
          <div class="carousel-caption">
           <h4><%= @posts.all[-4].introduction%></p>
         </div>
       </div>
 
       <div class="item">
-        <img style="width: 760px; height: 400px;" src="<%= @posts.fourth.image%>">
+        <img style="width: 760px; height: 400px;" src="<%= @posts.all[-5].image%>">
          <div class="carousel-caption">
           <h4><%= @posts.all[-5].introduction%></p>
         </div>
@@ -46,10 +46,10 @@
 
   <ul class="list-group col-sm-4">
     <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><h4><%= @posts.last.title%></h4></li>
-    <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><h4><%= @posts.first.title%></h4></li>
-    <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><h4><%= @posts.second.title%></h4></li>
-    <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><h4><%= @posts.third.title%></h4></li>
-    <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><h4><%= @posts.fourth.title%></h4></li>
+    <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><h4><%= @posts.all[-2].title%></h4></li>
+    <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><h4><%= @posts.all[-3].title%></h4></li>
+    <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><h4><%= @posts.all[-4].title%></h4></li>
+    <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><h4><%= @posts.all[-5].title%></h4></li>
   </ul>
 
     <!-- Controls -->

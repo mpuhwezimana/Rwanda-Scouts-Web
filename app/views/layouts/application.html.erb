@@ -59,7 +59,13 @@
             <li class= "white"><a style="color: white;" href="http://localhost:3001/" target="_blank">Shop</a></li>
             <li class= "white"><a style="color: white;" href="/troops">Troops</a></li>
             <li class="dropdown">
-              <a style="color: white;" href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
+              <a style="color: white;" href="#" class="white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+                <% if current_user%>
+                  <%= current_user.name%>
+                <% else %>
+                  User
+                <% end %>
+              <span class="caret"></span></a>
               <ul class="dropdown-menu">
               <% if current_user%> 
                 <li><a href="logout">Logout</a></li>
