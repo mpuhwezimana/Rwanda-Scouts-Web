@@ -13,6 +13,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'mail_form'
 gem 'simple_form'
+gem 'rails_12factor', group: :production
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
