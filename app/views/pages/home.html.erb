@@ -46,6 +46,82 @@
     </div>    
 </div>
 
+<div class="row">
+
+        <div class="col-sm-4">
+        <div class="news">
+          <div class="img-figure">
+            <div class="cat">
+              <% if @posts.last.created_at > Time.now.beginning_of_day %>
+                 <%="#{time_ago_in_words(@posts.last.created_at)} ago"%>  
+              <% else %>
+                <%= @posts.last.created_at.strftime("%b %d, %Y") %>
+              <% end %>
+            </div>
+            <img style="width: 500px; height: 300px;" src="<%=@posts.last.image%>"">
+          </div>  
+
+          <div class="title">
+            <h1><%=@posts.last.title%></h1>
+          </div>
+          <p class="description"><%=@posts.last.introduction%></p>
+          <p class="more">
+            <a href="/posts/<%=@posts.last.id%>">read more</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+          </p>
+          <br>
+      </div>
+      </div>
+
+        <div class="col-sm-4">
+        <div class="news">
+          <div class="img-figure">
+            <div class="cat">
+              <% if @posts.all[-2].created_at > Time.now.beginning_of_day %>
+                 <%="#{time_ago_in_words(@posts.last.created_at)} ago"%>  
+              <% else %>
+                <%= @posts.all[-2].created_at.strftime("%b %d, %Y") %>
+              <% end %>
+            </div>
+            <img style="width: 500px; height: 300px;" src="<%=@posts.all[-2].image%>"">
+          </div>  
+
+          <div class="title">
+            <h1><%=@posts.all[-2].title%></h1>
+          </div>
+          <p class="description"><%=@posts.all[-2].introduction%></p>
+          <p class="more">
+            <a href="/posts/<%=@posts.all[-2].id%>">read more</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+          </p>
+          <br>
+      </div>
+      </div>
+
+        <div class="col-sm-4">
+        <div class="news">
+          <div class="img-figure">
+            <div class="cat">
+              <% if @posts.all[-3].created_at > Time.now.beginning_of_day %>
+                 <%="#{time_ago_in_words(@posts.all[-3].created_at)} ago"%>  
+              <% else %>
+                <%= @posts.all[-3].created_at.strftime("%b %d, %Y") %>
+              <% end %>
+            </div>
+            <img style="width: 500px; height: 300px;" src="<%=@posts.all[-3].image%>"">
+          </div>  
+
+          <div class="title">
+            <h1><%=@posts.all[-3].title%></h1>
+          </div>
+          <p class="description"><%=@posts.all[-3].introduction%></p>
+          <p class="more">
+            <a href="/posts/<%=@posts.all[-3].id%>">read more</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+          </p>
+          <br>
+      </div>
+      </div>
+
+  </div>
+
       <h1 style="text-align: center; color: white; background-color: purple;">Find a Troop Near You using this map!!!</h1>
 <!DOCTYPE html>
 <html>

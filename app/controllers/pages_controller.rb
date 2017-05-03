@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @troops = Troop.all
+    @posts = Post.all
   end
 
   def mission
