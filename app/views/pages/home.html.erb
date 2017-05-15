@@ -50,18 +50,18 @@
 
 <h1 style="text-align: center; color: white; background-color: purple;">Breaking News In Rwanda Scouts</h1>
 <div class="row">
-
+ <% if @posts.any? %>
         <div class="col-sm-4">
         <div class="news">
           <div class="img-figure">
             <div class="cat">
-            <% if @posts.any? %>
+           
               <% if @posts.last.created_at > Time.now.beginning_of_day %>
                  <%="#{time_ago_in_words(@posts.last.created_at)} ago"%>  
               <% else %>
                 <%= @posts.last.created_at.strftime("%b %d, %Y") %>
               <% end %>
-            <% end %>
+         
             </div>
             <img style="width: 500px; height: 300px;" src="<%=@posts.last.image%>"">
           </div>  
@@ -124,7 +124,7 @@
           <br>
       </div>
       </div>
-
+<% end %>
   </div>
 
       <h1 style="text-align: center; color: white; background-color: purple;">Find a Troop Near You using this map!!!</h1>
