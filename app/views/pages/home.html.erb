@@ -55,7 +55,7 @@
         <div class="news">
           <div class="img-figure">
             <div class="cat">
-            <% if @posts %>
+            <% if @posts.any? %>
               <% if @posts.last.created_at > Time.now.beginning_of_day %>
                  <%="#{time_ago_in_words(@posts.last.created_at)} ago"%>  
               <% else %>
