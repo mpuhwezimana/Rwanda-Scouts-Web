@@ -63,12 +63,12 @@
                 <% if current_user%>
                   <%= current_user.name%>
                 <% else %>
-                  User
+                  Log In/Sign Up
                 <% end %>
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
               <% if current_user%> 
-                <li><a href="logout">Logout</a></li>
+                <li><a href="/logout">Logout</a></li>
               <% else %>
                 <li><a href="/login">Login</a></li>
                 <li role="separator" class="divider"></li>

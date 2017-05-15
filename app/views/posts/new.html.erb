@@ -1,46 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-  <h1>New Post:</h1>
-<script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
-  <%= form_tag "/posts", method: :post do %>
-  <ul>
-    <% if @post.errors.any? %>
-      <% @post.errors.full_messages.each do |message| %>
-        <li class="errors"><%= message %></li> 
+<% if current_user && current_user.admin%> 
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <h1>New Post:</h1>
+  <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+    <%= form_tag "/posts", method: :post do %>
+    <ul>
+      <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |message| %>
+          <li class="errors"><%= message %></li> 
+        <% end %>
       <% end %>
+    </ul>
+    <div class="container">
+      <div class="row">
+        <label for="title">Title of the post:</label><br />
+        <input id="title" class="input" name="title" type="text" value="" size="30" /><br />
+      </div>
+      <div class="row">
+        <label for="title">Cover Image:</label><br />
+        <input id="image" class="input" name="image" type="text" value="" size="30" /><br />
+      </div>
+      <div class="row">
+        <label for="title">Post Introduction</label><br />
+        <input id="introduction" class="input" name="introduction" type="text" value="" size="30" /><br />
+      </div>
+      <div class="row">
+        <label for="title">Author</label><br />
+        <input id="author" class="input" name="author" type="text" value="" size="30" /><br />
+      </div>
+      <div class="row">
+        <label for="body">Body of the post:</label><br />
+        <textarea name="body"></textarea>
+         <script>
+          CKEDITOR.replace( 'body' );
+        </script>   
+      </div>
+      
+      <input id="submit_button" type="submit" value="Publish Post" />
     <% end %>
-  </ul>
-  <div class="container">
-    <div class="row">
-      <label for="title">Title of the post:</label><br />
-      <input id="title" class="input" name="title" type="text" value="" size="30" /><br />
     </div>
-    <div class="row">
-      <label for="title">Cover Image:</label><br />
-      <input id="image" class="input" name="image" type="text" value="" size="30" /><br />
-    </div>
-    <div class="row">
-      <label for="title">Post Introduction</label><br />
-      <input id="introduction" class="input" name="introduction" type="text" value="" size="30" /><br />
-    </div>
-    <div class="row">
-      <label for="title">Author</label><br />
-      <input id="author" class="input" name="author" type="text" value="" size="30" /><br />
-    </div>
-    <div class="row">
-      <label for="body">Body of the post:</label><br />
-      <textarea name="body"></textarea>
-       <script>
-        CKEDITOR.replace( 'body' );
-      </script>   
-    </div>
-    
-    <input id="submit_button" type="submit" value="Publish Post" />
-  <% end %>
-  </div>
-</body>
-</html>
+  </body>
+  </html>
+<% end %> 

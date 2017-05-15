@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
  
+  get 'contact_form/new'
+
+  get 'contact_form/create'
+
   get 'pages/home'
 
   get 'pages/mission'
@@ -10,9 +14,6 @@ Rails.application.routes.draw do
 
   get 'pages/contacts'
   get 'pages/program'
-
-  match '/contactes', to: 'contactes#new', via: 'get'
-  resources "contactes", only: [:new, :create]
 
   resources :contacts
   get "/", to: "pages#home"
@@ -35,7 +36,7 @@ Rails.application.routes.draw do
   end
 
   resources :discussion_comments
-
+  resources :contact_forms
 
 
 

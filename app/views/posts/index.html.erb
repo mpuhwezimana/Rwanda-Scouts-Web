@@ -1,4 +1,4 @@
-<% if current_user%> 
+<% if current_user && current_user.admin%> 
   <a class="primary" href="/posts/new">New Post</a>
 <% end %>
 
@@ -11,7 +11,7 @@
       <div class="item active">
         <img style="width: 760px; height: 400px;" src="<%= @posts.last.image%>">
          <div class="carousel-caption">
-          <h4><%= @posts.last.introduction%></p>
+          <h4><a href="/posts/<%=@posts.last.id%>"><%= @posts.last.introduction%></a></p>
         </div>
       </div>
 
@@ -19,6 +19,7 @@
         <img style="width: 760px; height: 400px;" src="<%= @posts.all[-2].image%>">
          <div class="carousel-caption">
           <h4><%= @posts.all[-2].introduction%></h4>
+
         </div>
       </div>
       <div class="item">
@@ -68,7 +69,7 @@
 
   <div class="row">
     <% @posts.each do |post| %>
-        <div class="col-sm-4">
+        <div class="col-sm-4" style="height: 550px;">
         <div class="news">
           <div class="img-figure">
             <div class="cat">
@@ -82,19 +83,14 @@
           </div>  
 
           <div class="title">
-            <h1><%=post.title%></h1>
+            <h1><%=h truncate(post.title, :length => 50) %></h1>
           </div>
-          <p class="description"><%=post.introduction%></p>
+          <br>
+          <p class="description"><%=h truncate(post.introduction, :length => 120) %></p>
+
           <p class="more">
             <a href="/posts/<%=post.id%>">read more</a><i class="fa fa-angle-right" aria-hidden="true"></i>
           </p>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
       </div>
       </div>
     <% end %>
